@@ -1,0 +1,38 @@
+html {
+  margin: 0;
+  padding: 0;
+  background: #050509;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  background: #050509;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  color: white;
+  background: rgba(180, 65, 255, 0.45);
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050509;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(#9b4dff, #e83dbd);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c34fff;
+}
