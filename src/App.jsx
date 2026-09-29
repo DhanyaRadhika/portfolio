@@ -1,10 +1,10 @@
-import { useState } from "react";
 import "./App.css";
 
 const profile = {
   name: "Dhanya",
   fullName: "Nallamilli Dhanya Radhika",
   email: "nallamillidhanyaradhika@gmail.com",
+  phone: "+91 6302827787",
   github: "https://github.com/DhanyaRadhika",
   linkedin: "https://www.linkedin.com/in/nallamilli-dhanya-radhika-1219772a/",
   leetcode: "https://leetcode.com/u/Nallamilli_Dhanya_Radhika/",
@@ -175,7 +175,24 @@ function Arrow() {
   return <span className="arrow">↗</span>;
 }
 
-function Navbar({ onTalk }) {
+function MailIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m3 7 9 6 9-6" />
+    </svg>
+  );
+}
+
+function PhoneIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M7 3h3l2 5-2 2c1 2 2 3 4 4l2-2 5 2v3c0 1-1 2-2 2C10 19 5 14 5 5c0-1 1-2 2-2Z" />
+    </svg>
+  );
+}
+
+function Navbar() {
   return (
     <header className="navbar">
       <div className="nav-container">
@@ -194,9 +211,9 @@ function Navbar({ onTalk }) {
           <a href="#contact">Contact</a>
         </nav>
 
-        <button className="nav-button" onClick={onTalk}>
+        <a className="nav-button" href={`mailto:${profile.email}`}>
           Let's Talk <Arrow />
-        </button>
+        </a>
       </div>
     </header>
   );
@@ -464,21 +481,65 @@ function ProjectVisual({ type }) {
       <div className="project-screen campus-screen">
         <div className="screen-top">
           <span>CAMPUSONE</span>
-          <span className="live-state">CONNECTED</span>
+          <span className="live-state">CAMPUS HUB</span>
         </div>
 
-        <div className="campus-orbit">
-          <div className="campus-center">C1</div>
+        <div className="campus-dashboard">
+          <div className="campus-sidebar">
+            <div className="campus-logo">C1</div>
+            <span className="campus-active" />
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
 
-          <div className="campus-node campus-node-a">ATTENDANCE</div>
+          <div className="campus-main">
+            <div className="campus-welcome">
+              <small>WELCOME BACK</small>
+              <strong>Campus Overview</strong>
+            </div>
 
-          <div className="campus-node campus-node-b">FACULTY</div>
+            <div className="campus-stat-row">
+              <div className="campus-stat">
+                <small>ATTENDANCE</small>
+                <strong>92%</strong>
+              </div>
 
-          <div className="campus-node campus-node-c">PLACEMENT</div>
+              <div className="campus-stat">
+                <small>PLACEMENT</small>
+                <strong>84%</strong>
+              </div>
 
-          <div className="campus-line line-a" />
-          <div className="campus-line line-b" />
-          <div className="campus-line line-c" />
+              <div className="campus-stat">
+                <small>UPDATES</small>
+                <strong>18</strong>
+              </div>
+            </div>
+
+            <div className="campus-bottom-grid">
+              <div className="campus-chart">
+                <small>ATTENDANCE OVERVIEW</small>
+
+                <div className="campus-chart-lines">
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
+
+              <div className="campus-notices">
+                <small>RECENT UPDATES</small>
+                <div />
+                <div />
+                <div />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -707,100 +768,87 @@ function Education() {
   );
 }
 
-function Contact({ onTalk }) {
+function Contact() {
   return (
     <section className="section contact-section" id="contact">
       <div className="contact-panel">
         <div className="contact-heading">
-          <span className="section-eyebrow">CONTACT</span>
+          <span className="section-eyebrow">GET IN TOUCH</span>
 
           <h2>
-            Let's create
+            Let's build
             <br />
-            <span>something useful.</span>
+            <span>something meaningful.</span>
           </h2>
         </div>
 
         <div className="contact-content">
           <p>
-            Have an opportunity, collaboration idea or simply want to talk
-            technology? I'd be happy to connect.
+            I'm open to connecting, discussing technology and exploring
+            opportunities where I can learn, contribute and build.
           </p>
 
-          <button className="primary-button" onClick={onTalk}>
-            Start a Conversation <Arrow />
-          </button>
+          <div className="contact-cards">
+            <a href={`mailto:${profile.email}`} className="contact-card">
+              <span className="contact-icon">
+                <MailIcon />
+              </span>
 
-          <a href={`mailto:${profile.email}`} className="email-link">
-            {profile.email}
+              <span className="contact-card-text">
+                <small>EMAIL</small>
+                <strong>{profile.email}</strong>
+              </span>
+            </a>
+
+            <a
+              href={`tel:${profile.phone.replace(/\s/g, "")}`}
+              className="contact-card"
+            >
+              <span className="contact-icon">
+                <PhoneIcon />
+              </span>
+
+              <span className="contact-card-text">
+                <small>PHONE</small>
+                <strong>{profile.phone}</strong>
+              </span>
+            </a>
+          </div>
+
+          <a
+            href={`mailto:${profile.email}`}
+            className="primary-button contact-email-button"
+          >
+            Send me an email <Arrow />
           </a>
+
+          <div className="contact-socials">
+            <a href={profile.github} target="_blank" rel="noreferrer">
+              GitHub <Arrow />
+            </a>
+
+            <a href={profile.linkedin} target="_blank" rel="noreferrer">
+              LinkedIn <Arrow />
+            </a>
+
+            <a href={profile.leetcode} target="_blank" rel="noreferrer">
+              LeetCode <Arrow />
+            </a>
+
+            <a href={profile.hackerrank} target="_blank" rel="noreferrer">
+              HackerRank <Arrow />
+            </a>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-function ContactModal({ onClose }) {
-  return (
-    <div className="modal-backdrop" onClick={onClose}>
-      <div className="contact-modal" onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose}>
-          ×
-        </button>
-
-        <span className="section-eyebrow">MESSAGE DHANYA</span>
-
-        <h2>Let's talk.</h2>
-
-        <p>Send a message and I'll get back to you through email.</p>
-
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <input
-            type="hidden"
-            name="_subject"
-            value="Portfolio Contact — Dhanya"
-          />
-
-          <label>
-            NAME
-            <input type="text" name="name" placeholder="Your name" required />
-          </label>
-
-          <label>
-            EMAIL
-            <input
-              type="email"
-              name="email"
-              placeholder="you@example.com"
-              required
-            />
-          </label>
-
-          <label>
-            MESSAGE
-            <textarea
-              name="message"
-              rows="5"
-              placeholder="Tell me what's on your mind..."
-              required
-            />
-          </label>
-
-          <button className="send-button" type="submit">
-            SEND MESSAGE <Arrow />
-          </button>
-        </form>
-      </div>
-    </div>
-  );
-}
-
 function App() {
-  const [contactOpen, setContactOpen] = useState(false);
-
   return (
     <>
-      <Navbar onTalk={() => setContactOpen(true)} />
+      <Navbar />
 
       <main>
         <Hero />
@@ -810,7 +858,7 @@ function App() {
         <Achievements />
         <Certificates />
         <Education />
-        <Contact onTalk={() => setContactOpen(true)} />
+        <Contact />
       </main>
 
       <footer>
@@ -824,12 +872,15 @@ function App() {
             <a href={profile.github} target="_blank" rel="noreferrer">
               GitHub
             </a>
+
             <a href={profile.linkedin} target="_blank" rel="noreferrer">
               LinkedIn
             </a>
+
             <a href={profile.leetcode} target="_blank" rel="noreferrer">
               LeetCode
             </a>
+
             <a href={profile.hackerrank} target="_blank" rel="noreferrer">
               HackerRank
             </a>
@@ -840,8 +891,6 @@ function App() {
           </span>
         </div>
       </footer>
-
-      {contactOpen && <ContactModal onClose={() => setContactOpen(false)} />}
     </>
   );
 }
