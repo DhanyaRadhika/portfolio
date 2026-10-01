@@ -11,6 +11,9 @@ const profile = {
   hackerrank: "https://www.hackerrank.com/profile/23A31A42E9",
 };
 
+const EMAIL_COMPOSE_URL =
+  "https://mail.google.com/mail/?view=cm&fs=1&to=nallamillidhanyaradhika@gmail.com";
+
 const skills = [
   {
     title: "Programming",
@@ -211,7 +214,12 @@ function Navbar() {
           <a href="#contact">Contact</a>
         </nav>
 
-        <a className="nav-button" href={`mailto:${profile.email}`}>
+        <a
+          className="nav-button"
+          href={EMAIL_COMPOSE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Let's Talk <Arrow />
         </a>
       </div>
@@ -302,7 +310,12 @@ function Hero() {
               Explore My Work <Arrow />
             </a>
 
-            <a href="#contact" className="outline-button">
+            <a
+              href={EMAIL_COMPOSE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="outline-button"
+            >
               Connect With Me
             </a>
           </div>
@@ -789,7 +802,12 @@ function Contact() {
           </p>
 
           <div className="contact-cards">
-            <a href={`mailto:${profile.email}`} className="contact-card">
+            <a
+              href={EMAIL_COMPOSE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-card"
+            >
               <span className="contact-icon">
                 <MailIcon />
               </span>
@@ -816,7 +834,9 @@ function Contact() {
           </div>
 
           <a
-            href={`mailto:${profile.email}`}
+            href={EMAIL_COMPOSE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="primary-button contact-email-button"
           >
             Send me an email <Arrow />
