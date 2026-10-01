@@ -6,7 +6,7 @@ const profile = {
   email: "nallamillidhanyaradhika@gmail.com",
   phone: "+91 6302827787",
   github: "https://github.com/DhanyaRadhika",
-  linkedin: "https://www.linkedin.com/in/nallamilli-dhanya-radhika-1219772a/",
+  linkedin: "https://www.linkedin.com/in/nallamilli-dhanya-radhika-1219772a6/",
   leetcode: "https://leetcode.com/u/Nallamilli_Dhanya_Radhika/",
   hackerrank: "https://www.hackerrank.com/profile/23A31A42E9",
 };
